@@ -1,0 +1,73 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myQuestionLabel" translate="feedyApp.question.home.createOrEditLabel">Create or edit a Question</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="question.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="feedyApp.question.answerType" for="field_answerType">AnswerType</label>
+            <select class="form-control" name="answerType" ng-model="question.answerType" id="field_answerType" required>
+                <option value="TEXT" translate="feedyApp.AnswerType.TEXT">TEXT</option>
+                <option value="MULTIPLE_CHOICE" translate="feedyApp.AnswerType.MULTIPLE_CHOICE">MULTIPLE_CHOICE</option>
+                <option value="CHECK_BOX_GROUP" translate="feedyApp.AnswerType.CHECK_BOX_GROUP">CHECK_BOX_GROUP</option>
+                <option value="TIME" translate="feedyApp.AnswerType.TIME">TIME</option>
+                <option value="DATE" translate="feedyApp.AnswerType.DATE">DATE</option>
+                <option value="LINEAR_SCALE" translate="feedyApp.AnswerType.LINEAR_SCALE">LINEAR_SCALE</option>
+            </select>
+            <div ng-show="editForm.answerType.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.answerType.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="feedyApp.question.text" for="field_text">Text</label>
+            <input type="text" class="form-control" name="text" id="field_text"
+                    ng-model="question.text"
+                    required />
+            <div ng-show="editForm.text.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.text.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="feedyApp.question.isMandatory" for="field_isMandatory">IsMandatory</label>
+            <input type="checkbox" class="form-control" name="isMandatory" id="field_isMandatory"
+                    ng-model="question.isMandatory"
+                     />
+            <div ng-show="editForm.isMandatory.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.isMandatory.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="feedyApp.question.options" for="field_options">options</label>
+            <select class="form-control" id="field_options" name="options" ng-model="question.options" ng-options="option as option.id for option in options track by option.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

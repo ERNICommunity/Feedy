@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "Feedy",
+    "packageName": "com.joinerni.feedy",
+    "packageFolder": "com/joinerni/feedy",
+    "authenticationType": "session",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "gradle",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "31d74acca99caa084bc30798e24058a5aae988d4",
+    "testFrameworks": [
+      "cucumber"
+    ]
+  }
+}

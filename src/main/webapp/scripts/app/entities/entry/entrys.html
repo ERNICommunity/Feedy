@@ -1,0 +1,76 @@
+<div>
+    <h2 translate="feedyApp.entry.home.title">Entrys</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="entry.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="feedyApp.entry.home.createLabel">Create new Entry
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="feedyApp.entry.isSigned">IsSigned</span></th>
+                    <th><span translate="feedyApp.entry.status">Status</span></th>
+                    <th><span translate="feedyApp.entry.created">Created</span></th>
+                    <th><span translate="feedyApp.entry.lastEdited">LastEdited</span></th>
+                    <th><span translate="feedyApp.entry.firstRead">FirstRead</span></th>
+                    <th><span translate="feedyApp.entry.answers">answers</span></th>
+                    <th><span translate="feedyApp.entry.author">author</span></th>
+                    <th><span translate="feedyApp.entry.target">target</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in entrys track by entry.id">
+                    <td><a ui-sref="entry.detail({id:entry.id})">{{entry.id}}</a></td>
+                    <td>{{entry.isSigned}}</td>
+                    <td translate="{{'feedyApp.EntryStatus.' + entry.status}}">{{entry.status}}</td>
+                    <td>{{entry.created | date:'medium'}}</td>
+                    <td>{{entry.lastEdited | date:'medium'}}</td>
+                    <td>{{entry.firstRead | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="answer.detail({id:entry.answers.id})">{{entry.answers.id}}</a>
+                    </td>
+                    <td>
+                        {{entry.author.id}}
+                    </td>
+                    <td>
+                        {{entry.target.id}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="entry.detail({id:entry.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="entry.edit({id:entry.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="entry.delete({id:entry.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

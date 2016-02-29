@@ -1,0 +1,23 @@
+{
+    "feedyApp": {
+        "form" : {
+            "home": {
+                "title": "Forms",
+                "createLabel": "Créer un nouveau Form",
+                "createOrEditLabel": "Créer ou éditer un Form",
+                "search": "Search for Form"
+            },
+            "created": "Un nouveau Form a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Form avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Form avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Form {{ id }} ?"
+            },
+            "detail": {
+                "title": "Form"
+            },
+            "questions": "Questions"
+        }
+    }
+}
+

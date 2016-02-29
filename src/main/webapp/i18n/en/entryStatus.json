@@ -1,0 +1,10 @@
+{
+    "feedyApp": {
+        "EntryStatus" : {
+            "null": "",
+            "DRAFT": "DRAFT",
+            "SENT": "SENT",
+            "READ": "READ"
+        }
+    }
+}

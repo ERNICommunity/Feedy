@@ -1,0 +1,13 @@
+{
+    "feedyApp": {
+        "AnswerType" : {
+            "null": "",
+            "TEXT": "TEXT",
+            "MULTIPLE_CHOICE": "MULTIPLE_CHOICE",
+            "CHECK_BOX_GROUP": "CHECK_BOX_GROUP",
+            "TIME": "TIME",
+            "DATE": "DATE",
+            "LINEAR_SCALE": "LINEAR_SCALE"
+        }
+    }
+}

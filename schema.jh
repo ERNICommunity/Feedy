@@ -1,0 +1,64 @@
+
+entity Option {
+  text String required
+}
+
+entity Answer {
+  text String
+}
+
+enum AnswerType {
+    TEXT, MULTIPLE_CHOICE, CHECK_BOX_GROUP, TIME, DATE, LINEAR_SCALE
+}
+
+enum EntryStatus {
+    DRAFT, SENT, READ
+}
+
+entity Question {
+	answerType AnswerType required,
+    text String required,
+    isMandatory Boolean required
+}
+
+entity Form {	
+}
+
+entity Entry {
+	isSigned Boolean required
+    status EntryStatus required,
+    created ZonedDateTime,
+    lastEdited ZonedDateTime,
+    firstRead ZonedDateTime
+}
+
+
+relationship ManyToOne {
+  Form{questions} to Question
+}
+
+relationship OneToOne {
+  Answer{question} to Question
+}
+
+relationship ManyToOne {
+  Answer{options} to Option
+}
+
+relationship ManyToOne {
+  Question{options} to Option
+}
+
+relationship ManyToOne {
+  Entry{answers} to Answer
+}
+
+relationship OneToOne {
+  Entry{author} to User
+}
+
+relationship OneToOne {
+  Entry{target} to User
+}
+
+service Form, Question, Option, Entry, Answer with serviceClass

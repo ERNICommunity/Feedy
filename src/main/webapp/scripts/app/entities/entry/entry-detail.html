@@ -1,0 +1,86 @@
+
+<div>
+    <h2><span translate="feedyApp.entry.detail.title">Entry</span> {{entry.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="feedyApp.entry.isSigned">IsSigned</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{entry.isSigned}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="feedyApp.entry.status">Status</span>
+                </td>
+                <td>
+                    <span class="form-control-static" translate="{{'feedyApp.EntryStatus.' + entry.status}}">{{entry.status}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="feedyApp.entry.created">Created</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{entry.created | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="feedyApp.entry.lastEdited">LastEdited</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{entry.lastEdited | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="feedyApp.entry.firstRead">FirstRead</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{entry.firstRead | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="feedyApp.entry.answers">answers</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="answer.detail({id:entry.answers.id})">{{entry.answers.id}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="feedyApp.entry.author">author</span>
+                </td>
+                <td>
+                    {{entry.author.id}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="feedyApp.entry.target">target</span>
+                </td>
+                <td>
+                    {{entry.target.id}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

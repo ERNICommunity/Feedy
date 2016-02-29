@@ -1,0 +1,10 @@
+feedy-postgresql:
+  container_name: feedy-postgresql
+  image: postgres:9.4.5
+  # volumes:
+  #   - ~/volumes/jhipster/Feedy/postgresql/:/var/lib/postgresql/
+  environment:
+    - POSTGRES_USER=Feedy
+    - POSTGRES_PASSWORD=
+  ports:
+    - "5432:5432"
