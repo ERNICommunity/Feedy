@@ -6,6 +6,7 @@
         "id": "ID",
         "firstName": "First name",
         "lastName": "Last name",
-        "email": "Email"
+        "email": "Email",
+        "searchColleague": "Search"
     }
 }
