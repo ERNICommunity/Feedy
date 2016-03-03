@@ -1,0 +1,11 @@
+{
+    "colleagues": {
+        "home": {
+            "title": "Colleagues"
+        },
+        "id": "ID",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email"
+    }
+}
