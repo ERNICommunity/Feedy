@@ -1,0 +1,50 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "options",
+      "otherEntityName": "option",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "text",
+      "ownerSide": true
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "form",
+      "otherEntityName": "form",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "title"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "answerType",
+      "fieldType": "AnswerType",
+      "fieldValues": "TEXT,MULTIPLE_CHOICE,CHECK_BOX_GROUP,TIME,DATE,LINEAR_SCALE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "text",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "isMandatory",
+      "fieldType": "Boolean",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "changelogDate": "20160304114843",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass"
+}

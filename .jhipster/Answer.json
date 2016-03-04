@@ -1,0 +1,31 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "question",
+      "otherEntityName": "question",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "text",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "answer"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "entry",
+      "otherEntityName": "entry",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "text",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160304114842",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,67 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "answer",
+      "otherEntityName": "answer",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "entry"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "author",
+      "otherEntityName": "user",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "firstName",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "entry"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipName": "target",
+      "otherEntityName": "user",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "firstName",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "entry"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "isSigned",
+      "fieldType": "Boolean",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "status",
+      "fieldType": "EntryStatus",
+      "fieldValues": "DRAFT,SENT,READ",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "created",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "lastEdited",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "firstRead",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "changelogDate": "20160304114845",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass"
+}

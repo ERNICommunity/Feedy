@@ -1,0 +1,26 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "question",
+      "otherEntityName": "question",
+      "relationshipType": "many-to-many",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "options"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "text",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "changelogDate": "20160304114841",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass"
+}

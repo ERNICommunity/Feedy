@@ -1,0 +1,22 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "questions",
+      "otherEntityName": "question",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "form"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "title",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160304114844",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass"
+}
