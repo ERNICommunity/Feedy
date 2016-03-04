@@ -1,5 +1,6 @@
 package com.joinerni.feedy.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.ZonedDateTime;
 
 import javax.persistence.*;
@@ -40,9 +41,9 @@ public class Entry implements Serializable {
     @Column(name = "first_read")
     private ZonedDateTime firstRead;
     
-    @ManyToOne
-    @JoinColumn(name = "answers_id")
-    private Answer answers;
+    @OneToMany(mappedBy = "entry")
+    @JsonIgnore
+    private Set<Answer> answers = new HashSet<>();
 
     @OneToOne
     private User author;
@@ -98,12 +99,12 @@ public class Entry implements Serializable {
         this.firstRead = firstRead;
     }
 
-    public Answer getAnswers() {
+    public Set<Answer> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(Answer answer) {
-        this.answers = answer;
+    public void setAnswers(Set<Answer> answers) {
+        this.answers = answers;
     }
 
     public User getAuthor() {

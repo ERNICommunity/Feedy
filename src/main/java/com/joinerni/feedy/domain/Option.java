@@ -1,9 +1,12 @@
 package com.joinerni.feedy.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -21,6 +24,10 @@ public class Option implements Serializable {
     @Column(name = "text", nullable = false)
     private String text;
     
+    @ManyToMany(mappedBy = "optionss")
+    @JsonIgnore
+    private Set<Question> questions = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -35,6 +42,14 @@ public class Option implements Serializable {
     
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Set<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
     }
 
     @Override

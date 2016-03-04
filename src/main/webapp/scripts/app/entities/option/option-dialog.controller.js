@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('feedyApp').controller('OptionDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Option',
-        function($scope, $stateParams, $uibModalInstance, entity, Option) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Option', 'Question',
+        function($scope, $stateParams, $uibModalInstance, entity, Option, Question) {
 
         $scope.option = entity;
+        $scope.questions = Question.query();
         $scope.load = function(id) {
             Option.get({id : id}, function(result) {
                 $scope.option = result;

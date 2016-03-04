@@ -25,8 +25,8 @@ public class Answer implements Serializable {
     private Question question;
 
     @ManyToOne
-    @JoinColumn(name = "options_id")
-    private Option options;
+    @JoinColumn(name = "entry_id")
+    private Entry entry;
 
     public Long getId() {
         return id;
@@ -52,12 +52,12 @@ public class Answer implements Serializable {
         this.question = question;
     }
 
-    public Option getOptions() {
-        return options;
+    public Entry getEntry() {
+        return entry;
     }
 
-    public void setOptions(Option option) {
-        this.options = option;
+    public void setEntry(Entry entry) {
+        this.entry = entry;
     }
 
     @Override

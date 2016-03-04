@@ -19,6 +19,7 @@ angular.module('feedyApp')
 
         $scope.clear = function () {
             $scope.form = {
+                title: null,
                 id: null
             };
         };

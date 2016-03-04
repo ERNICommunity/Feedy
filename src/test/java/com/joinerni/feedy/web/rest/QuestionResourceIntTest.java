@@ -43,7 +43,7 @@ import com.joinerni.feedy.domain.enumeration.AnswerType;
 @IntegrationTest
 public class QuestionResourceIntTest {
 
-
+    
     private static final AnswerType DEFAULT_ANSWER_TYPE = AnswerType.TEXT;
     private static final AnswerType UPDATED_ANSWER_TYPE = AnswerType.MULTIPLE_CHOICE;
     private static final String DEFAULT_TEXT = "AAAAA";

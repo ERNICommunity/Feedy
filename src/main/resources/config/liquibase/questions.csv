@@ -1,0 +1,5 @@
+id;answer_type;text;is_mandatory;form_id
+1;TEXT;What does your colleague do best? What are his strong points?;t;1
+2;TEXT;What is your colleague also good at?;t;1
+3;TEXT;What could your colleague improve?;t;1
+

@@ -52,18 +52,10 @@
             </tr>
             <tr>
                 <td>
-                    <span translate="feedyApp.entry.answers">answers</span>
-                </td>
-                <td>
-                    <a class="form-control-static" ui-sref="answer.detail({id:entry.answers.id})">{{entry.answers.id}}</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <span translate="feedyApp.entry.author">author</span>
                 </td>
                 <td>
-                    {{entry.author.id}}
+                    {{entry.author.firstName}}
                 </td>
             </tr>
             <tr>
@@ -71,7 +63,7 @@
                     <span translate="feedyApp.entry.target">target</span>
                 </td>
                 <td>
-                    {{entry.target.id}}
+                    {{entry.target.firstName}}
                 </td>
             </tr>
             </tbody>

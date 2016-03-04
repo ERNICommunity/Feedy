@@ -2,10 +2,8 @@ package com.joinerni.feedy.service;
 
 import com.joinerni.feedy.domain.Form;
 import com.joinerni.feedy.repository.FormRepository;
-import com.joinerni.feedy.security.AuthoritiesConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +27,6 @@ public class FormService {
      * Save a form.
      * @return the persisted entity
      */
-    @Secured({AuthoritiesConstants.ADMIN})
     public Form save(Form form) {
         log.debug("Request to save Form : {}", form);
         Form result = formRepository.save(form);

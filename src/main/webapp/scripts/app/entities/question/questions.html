@@ -23,6 +23,7 @@
                     <th><span translate="feedyApp.question.text">Text</span></th>
                     <th><span translate="feedyApp.question.isMandatory">IsMandatory</span></th>
                     <th><span translate="feedyApp.question.options">options</span></th>
+                    <th><span translate="feedyApp.question.form">form</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -33,7 +34,12 @@
                     <td>{{question.text}}</td>
                     <td>{{question.isMandatory}}</td>
                     <td>
-                        <a ui-sref="option.detail({id:question.options.id})">{{question.options.id}}</a>
+                        <span ng-repeat="options in question.optionss">
+                            <a class="form-control-static" ui-sref="option.detail({id: {{options.id}}})">{{options.text}}</a>{{$last ? '' : ', '}}
+                        <span>
+                    </td>
+                    <td>
+                        <a ui-sref="form.detail({id:question.form.id})">{{question.form.title}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

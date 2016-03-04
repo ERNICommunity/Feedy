@@ -16,6 +16,7 @@
             "detail": {
                 "title": "Form"
             },
+            "title": "Title",
             "questions": "Questions"
         }
     }

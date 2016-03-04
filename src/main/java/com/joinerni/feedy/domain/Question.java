@@ -34,9 +34,15 @@ public class Question implements Serializable {
     @Column(name = "is_mandatory", nullable = false)
     private Boolean isMandatory;
     
+    @ManyToMany
+    @JoinTable(name = "question_options",
+               joinColumns = @JoinColumn(name="questions_id", referencedColumnName="ID"),
+               inverseJoinColumns = @JoinColumn(name="optionss_id", referencedColumnName="ID"))
+    private Set<Option> optionss = new HashSet<>();
+
     @ManyToOne
-    @JoinColumn(name = "options_id")
-    private Option options;
+    @JoinColumn(name = "form_id")
+    private Form form;
 
     public Long getId() {
         return id;
@@ -70,12 +76,20 @@ public class Question implements Serializable {
         this.isMandatory = isMandatory;
     }
 
-    public Option getOptions() {
-        return options;
+    public Set<Option> getOptionss() {
+        return optionss;
     }
 
-    public void setOptions(Option option) {
-        this.options = option;
+    public void setOptionss(Set<Option> options) {
+        this.optionss = options;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
     }
 
     @Override

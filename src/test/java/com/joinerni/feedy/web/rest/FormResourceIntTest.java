@@ -42,6 +42,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class FormResourceIntTest {
 
+    private static final String DEFAULT_TITLE = "AAAAA";
+    private static final String UPDATED_TITLE = "BBBBB";
 
     @Inject
     private FormRepository formRepository;
@@ -68,10 +70,11 @@ public class FormResourceIntTest {
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
     }
-S
+
     @Before
     public void initTest() {
         form = new Form();
+        form.setTitle(DEFAULT_TITLE);
     }
 
     @Test
@@ -90,6 +93,7 @@ S
         List<Form> forms = formRepository.findAll();
         assertThat(forms).hasSize(databaseSizeBeforeCreate + 1);
         Form testForm = forms.get(forms.size() - 1);
+        assertThat(testForm.getTitle()).isEqualTo(DEFAULT_TITLE);
     }
 
     @Test
@@ -102,7 +106,8 @@ S
         restFormMockMvc.perform(get("/api/forms?sort=id,desc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.[*].id").value(hasItem(form.getId().intValue())));
+                .andExpect(jsonPath("$.[*].id").value(hasItem(form.getId().intValue())))
+                .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())));
     }
 
     @Test
@@ -115,7 +120,8 @@ S
         restFormMockMvc.perform(get("/api/forms/{id}", form.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$.id").value(form.getId().intValue()));
+            .andExpect(jsonPath("$.id").value(form.getId().intValue()))
+            .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()));
     }
 
     @Test
@@ -135,6 +141,7 @@ S
 		int databaseSizeBeforeUpdate = formRepository.findAll().size();
 
         // Update the form
+        form.setTitle(UPDATED_TITLE);
 
         restFormMockMvc.perform(put("/api/forms")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -145,6 +152,7 @@ S
         List<Form> forms = formRepository.findAll();
         assertThat(forms).hasSize(databaseSizeBeforeUpdate);
         Form testForm = forms.get(forms.size() - 1);
+        assertThat(testForm.getTitle()).isEqualTo(UPDATED_TITLE);
     }
 
     @Test

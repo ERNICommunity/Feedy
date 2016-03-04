@@ -21,7 +21,7 @@
                     <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="feedyApp.answer.text">Text</span></th>
                     <th><span translate="feedyApp.answer.question">question</span></th>
-                    <th><span translate="feedyApp.answer.options">options</span></th>
+                    <th><span translate="feedyApp.answer.entry">entry</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -30,10 +30,10 @@
                     <td><a ui-sref="answer.detail({id:answer.id})">{{answer.id}}</a></td>
                     <td>{{answer.text}}</td>
                     <td>
-                        <a ui-sref="question.detail({id:answer.question.id})">{{answer.question.id}}</a>
+                        <a ui-sref="question.detail({id:answer.question.id})">{{answer.question.text}}</a>
                     </td>
                     <td>
-                        <a ui-sref="option.detail({id:answer.options.id})">{{answer.options.id}}</a>
+                        <a ui-sref="entry.detail({id:answer.entry.id})">{{answer.entry.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

@@ -1,9 +1,7 @@
 package com.joinerni.feedy.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.joinerni.feedy.config.SecurityConfiguration;
 import com.joinerni.feedy.domain.Form;
-import com.joinerni.feedy.security.AuthoritiesConstants;
 import com.joinerni.feedy.service.FormService;
 import com.joinerni.feedy.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
@@ -12,7 +10,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;

@@ -16,7 +16,8 @@
             "detail": {
                 "title": "Option"
             },
-            "text": "Text"
+            "text": "Text",
+            "question": "Question"
         }
     }
 }

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('feedyApp').controller('AnswerDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Answer', 'Question', 'Option',
-        function($scope, $stateParams, $uibModalInstance, $q, entity, Answer, Question, Option) {
+    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Answer', 'Question', 'Entry',
+        function($scope, $stateParams, $uibModalInstance, $q, entity, Answer, Question, Entry) {
 
         $scope.answer = entity;
         $scope.questions = Question.query({filter: 'answer-is-null'});
@@ -14,7 +14,7 @@ angular.module('feedyApp').controller('AnswerDialogController',
         }).then(function(question) {
             $scope.questions.push(question);
         });
-        $scope.options = Option.query();
+        $scope.entrys = Entry.query();
         $scope.load = function(id) {
             Answer.get({id : id}, function(result) {
                 $scope.answer = result;

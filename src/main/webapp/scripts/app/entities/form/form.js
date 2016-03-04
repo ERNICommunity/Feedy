@@ -61,6 +61,7 @@ angular.module('feedyApp')
                         resolve: {
                             entity: function () {
                                 return {
+                                    title: null,
                                     id: null
                                 };
                             }

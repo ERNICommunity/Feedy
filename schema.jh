@@ -21,11 +21,12 @@ entity Question {
     isMandatory Boolean required
 }
 
-entity Form {	
+entity Form {
+	title String
 }
 
 entity Entry {
-	isSigned Boolean required
+	isSigned Boolean required,
     status EntryStatus required,
     created ZonedDateTime,
     lastEdited ZonedDateTime,
@@ -33,32 +34,28 @@ entity Entry {
 }
 
 
-relationship ManyToOne {
-  Form{questions} to Question
+relationship OneToMany {
+  Form{Questions} to Question{form(title)}
 }
 
 relationship OneToOne {
-  Answer{question} to Question
+  Answer{question(text)} to Question
 }
 
-relationship ManyToOne {
-  Answer{options} to Option
+relationship ManyToMany {
+  Question{options(text)} to Option{question(text)}
 }
 
-relationship ManyToOne {
-  Question{options} to Option
-}
-
-relationship ManyToOne {
-  Entry{answers} to Answer
+relationship OneToMany {
+  Entry to Answer{entry}
 }
 
 relationship OneToOne {
-  Entry{author} to User
+  Entry{author(firstName)} to User
 }
 
 relationship OneToOne {
-  Entry{target} to User
+  Entry{target(firstName)} to User
 }
 
 service Form, Question, Option, Entry, Answer with serviceClass

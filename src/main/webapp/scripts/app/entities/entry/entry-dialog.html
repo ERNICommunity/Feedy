@@ -65,20 +65,14 @@
         </div>
 
         <div class="form-group">
-            <label translate="feedyApp.entry.answers" for="field_answers">answers</label>
-            <select class="form-control" id="field_answers" name="answers" ng-model="entry.answers" ng-options="answer as answer.id for answer in answers track by answer.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
             <label translate="feedyApp.entry.author" for="field_author">author</label>
-            <select class="form-control" id="field_author" name="author" ng-model="entry.author" ng-options="user as user.id for user in users track by user.id">
+            <select class="form-control" id="field_author" name="author" ng-model="entry.author" ng-options="user as user.firstName for user in users track by user.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="feedyApp.entry.target" for="field_target">target</label>
-            <select class="form-control" id="field_target" name="target" ng-model="entry.target" ng-options="user as user.id for user in users track by user.id">
+            <select class="form-control" id="field_target" name="target" ng-model="entry.target" ng-options="user as user.firstName for user in users track by user.id">
                 <option value=""></option>
             </select>
         </div>

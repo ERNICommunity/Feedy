@@ -1,5 +1,6 @@
 package com.joinerni.feedy.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,9 +19,12 @@ public class Form implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "questions_id")
-    private Question questions;
+    @Column(name = "title")
+    private String title;
+    
+    @OneToMany(mappedBy = "form")
+    @JsonIgnore
+    private Set<Question> questionss = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -30,12 +34,20 @@ public class Form implements Serializable {
         this.id = id;
     }
 
-    public Question getQuestions() {
-        return questions;
+    public String getTitle() {
+        return title;
+    }
+    
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setQuestions(Question question) {
-        this.questions = question;
+    public Set<Question> getQuestionss() {
+        return questionss;
+    }
+
+    public void setQuestionss(Set<Question> questions) {
+        this.questionss = questions;
     }
 
     @Override
@@ -62,6 +74,7 @@ public class Form implements Serializable {
     public String toString() {
         return "Form{" +
             "id=" + id +
+            ", title='" + title + "'" +
             '}';
     }
 }

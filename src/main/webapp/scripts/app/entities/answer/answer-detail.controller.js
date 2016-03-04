@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('feedyApp')
-    .controller('AnswerDetailController', function ($scope, $rootScope, $stateParams, entity, Answer, Question, Option) {
+    .controller('AnswerDetailController', function ($scope, $rootScope, $stateParams, entity, Answer, Question, Entry) {
         $scope.answer = entity;
         $scope.load = function (id) {
             Answer.get({id: id}, function(result) {

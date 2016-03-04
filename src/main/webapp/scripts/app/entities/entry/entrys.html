@@ -24,7 +24,6 @@
                     <th><span translate="feedyApp.entry.created">Created</span></th>
                     <th><span translate="feedyApp.entry.lastEdited">LastEdited</span></th>
                     <th><span translate="feedyApp.entry.firstRead">FirstRead</span></th>
-                    <th><span translate="feedyApp.entry.answers">answers</span></th>
                     <th><span translate="feedyApp.entry.author">author</span></th>
                     <th><span translate="feedyApp.entry.target">target</span></th>
                     <th></th>
@@ -39,13 +38,10 @@
                     <td>{{entry.lastEdited | date:'medium'}}</td>
                     <td>{{entry.firstRead | date:'medium'}}</td>
                     <td>
-                        <a ui-sref="answer.detail({id:entry.answers.id})">{{entry.answers.id}}</a>
+                        {{entry.author.firstName}}
                     </td>
                     <td>
-                        {{entry.author.id}}
-                    </td>
-                    <td>
-                        {{entry.target.id}}
+                        {{entry.target.firstName}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

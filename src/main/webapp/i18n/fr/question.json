@@ -19,7 +19,8 @@
             "answerType": "AnswerType",
             "text": "Text",
             "isMandatory": "IsMandatory",
-            "options": "Options"
+            "options": "Options",
+            "form": "Form"
         }
     }
 }

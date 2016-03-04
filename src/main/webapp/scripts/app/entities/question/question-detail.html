@@ -39,7 +39,17 @@
                     <span translate="feedyApp.question.options">options</span>
                 </td>
                 <td>
-                    <a class="form-control-static" ui-sref="option.detail({id:question.options.id})">{{question.options.id}}</a>
+                    <span ng-repeat="options in question.optionss">
+                        <a class="form-control-static" ui-sref="option.detail({id: {{options.id}}})">{{options.text}}</a>{{$last ? '' : ', '}}
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="feedyApp.question.form">form</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="form.detail({id:question.form.id})">{{question.form.title}}</a>
                 </td>
             </tr>
             </tbody>
