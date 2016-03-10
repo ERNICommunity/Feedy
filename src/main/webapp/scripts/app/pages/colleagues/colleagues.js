@@ -22,22 +22,27 @@ angular.module('feedyApp')
                     }]
                 }
             })
-            .state('colleagues-detail', {
+            .state('colleagues.write', {
                 parent: 'colleagues',
-                url: '/user/:login',
+                url: '/{login}/write',
                 data: {
-                    authorities: [],
+                    authorities: ['ROLE_USER'],
                 },
-                views: {
-                    'content@': {
-                        controller: 'ColleaguesDetailsController'
-                    }
-                },
-                resolve: {
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('user.management');
-                        return $translate.refresh();
-                    }]
-                }
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'scripts/app/pages/colleagues/colleague-write.html',
+                        controller: 'ColleagueWriteController',
+                        size: 'lg',
+                        resolve: {
+                            entity: ['User', function(User) {
+                                return User.get({login : $stateParams.login});
+                            }]
+                        }
+                    }).result.then(function(result) {
+                        $state.go('colleagues', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
             })
     });
