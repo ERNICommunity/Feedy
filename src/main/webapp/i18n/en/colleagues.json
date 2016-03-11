@@ -3,6 +3,10 @@
         "home": {
             "title": "Colleagues"
         },
+        "write":{
+            "title": "Write feedback for {{firstName}} {{lastName}}",
+            "choose": "Please choose the form template you wish to use to write your feedback:"
+        },
         "id": "ID",
         "firstName": "First name",
         "lastName": "Last name",
