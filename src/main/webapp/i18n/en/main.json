@@ -11,7 +11,8 @@
             "stackoverflow": "JHipster on Stack Overflow",
             "bugtracker": "JHipster bug tracker",
             "chat": "JHipster public chat room",
-            "contact": "contact @java_hipster on Twitter"
+            "contact": "contact @java_hipster on Twitter",
+            "joinErni": "Join ERNI"
         },
         "like": "If you like JHipster, don't forget to give us a star on",
         "github": "Github"

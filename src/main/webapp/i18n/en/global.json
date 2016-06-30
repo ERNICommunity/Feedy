@@ -42,12 +42,16 @@
         "form": {
             "username": "Username",
             "username.placeholder": "Your username",
+            "first_name.placeholder": "Your first name",
+            "last_name.placeholder": "Your last name",
             "newpassword": "New password",
             "newpassword.placeholder": "New password",
             "confirmpassword": "New password confirmation",
             "confirmpassword.placeholder": "Confirm the new password",
             "email": "E-mail",
-            "email.placeholder": "Your e-mail"
+            "email.placeholder": "Your e-mail",
+            "first_name": "First Name",
+            "last_name": "Last Name"
         },
         "messages": {
             "info": {
