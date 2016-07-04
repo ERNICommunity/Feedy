@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('feedyApp')
-    .controller('ColleagueWriteController', function ($scope, $stateParams, $uibModalInstance, User, Form) {
+    .controller('ColleagueWriteController', function ($scope, $stateParams, $uibModalInstance, User, Form, Question) {
         $scope.user = {};
         $scope.selectedForm ={};
         $scope.forms = Form.query(function(result){
@@ -18,5 +18,19 @@ angular.module('feedyApp')
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
         };
+
+         $scope.questions = [];
+         $scope.loadAll = function() {
+            Question.query(function(result) {
+                $scope.questions = result;
+            });
+         };
+         $scope.loadAll();
+
+
+         $scope.refresh = function () {
+            $scope.loadAll();
+            $scope.clear();
+         };
     });
 

@@ -1,0 +1,38 @@
+<form name="editForm" role="form" novalidate ng-submit="save()">
+    <h2><span translate="fquestion.detail.title">Question</span> {{question.id}}</h2>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myFormLabel" translate="colleagues.write.title"
+            translate-values="{firstName: '{{user.firstName}}', lastName: '{{user.lastName}}' }">Write feedback for John Doe</h4>
+    </div>
+    <div class="feedback-group">
+        <tr ng-repeat="question in questions track by question.id">
+            <td>{{question.text}}</td>
+            {{question.text}}
+            <span class="form-control-static">{{feedyApp.question.text}}</span>
+            <td><a ui-sref="question.detail({id:question.id})">{{question.id}}</a></td>
+            <td>
+                <span ng-repeat="options in question.options">
+                    <a class="form-control-static" ui-sref="option.detail({id: {{options.id}}})">{{options.text}}</a>{{$last ? '' : ', '}}
+                </span>
+            </td>
+            <textarea class="textArea" rows="4" cols="100" placeholder="Write your feedback here..."></textarea><br>
+        </tr>
+        <input type="checkbox" name="anonymous" value="True" checked>I want it to be anonymous
+    </div>
+
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ui-sref="colleagues.feedback({login:user.login})" class="btn btn-primary">
+            <span class="glyphicon glyphicon glyphicon glyphicon-play-circle"></span>&nbsp;Submit</span>
+        </button>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page"
+                        ng-change="loadAll()"></uib-pagination>
+    </div>
+</form>

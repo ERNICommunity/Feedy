@@ -2629,6 +2629,15 @@ input[type="search"] {
 .form-group {
   margin-bottom: 15px;
 }
+
+.feedback-group {
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+.textArea {
+    resize: none;
+}
 .radio,
 .checkbox {
   position: relative;

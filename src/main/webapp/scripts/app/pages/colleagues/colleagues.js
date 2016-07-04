@@ -45,4 +45,31 @@ angular.module('feedyApp')
                     })
                 }]
             })
+            .state('colleagues.feedback', {
+                            parent: 'colleagues',
+                            url: '/{login}/feedback',
+                            data: {
+                                authorities: ['ROLE_USER'],
+                            },
+                            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                                $uibModal.open({
+                                    templateUrl: 'scripts/app/pages/colleagues/colleague-write-feedback.html',
+                                    controller: 'ColleagueWriteController',
+                                    size: 'lg',
+                                    resolve: {
+                                        entity: ['User', function(User) {
+                                            return User.get({login : $stateParams.login});
+                                        }]
+                                    }
+                                }).result.then(function(result) {
+                                    $state.go('colleagues', null, { reload: true });
+                                }, function() {
+                                    $state.go('^');
+                                })
+                            }]
+                        })
+
+
+            //TODO implement send logic
+
     });
