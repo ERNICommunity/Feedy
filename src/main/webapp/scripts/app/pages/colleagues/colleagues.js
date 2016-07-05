@@ -68,8 +68,6 @@ angular.module('feedyApp')
                                 })
                             }]
                         })
-
-
-            //TODO implement send logic
+                       //TODO implement send logic
 
     });

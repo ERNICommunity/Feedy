@@ -1,28 +1,29 @@
 'use strict';
 
 angular.module('feedyApp')
-    .controller('FeedbackController', function ($scope, $state, Question) {
+    .controller('FeedbackController',
+     ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Answer', 'Question', 'Entry',
+        function ($scope, $stateParams, $uibModalInstance, $q, entity, Answer, Question, Entry) {
 
-        $scope.questions = [];
-        $scope.loadAll = function() {
-            Question.query(function(result) {
-               $scope.questions = result;
-            });
-        };
-        $scope.loadAll();
+        $scope.answer = entity;
+
+        var onSaveSuccess = function (result) {
+                    $scope.$emit('feedyApp:answerUpdate', result);
+                    $uibModalInstance.close(result);
+                    $scope.isSaving = false;
+                };
+
+        var onSaveError = function (result) {
+                    $scope.isSaving = false;
+                };
 
 
-        $scope.refresh = function () {
-            $scope.loadAll();
-            $scope.clear();
-        };
-
-        $scope.clear = function () {
-            $scope.question = {
-                answerType: null,
-                text: null,
-                isMandatory: false,
-                id: null
-            };
-        };
+        $scope.save = function () {
+                    $scope.isSaving = true;
+                    if ($scope.answer.id != null) {
+                        Answer.update($scope.answer, onSaveSuccess, onSaveError);
+                    } else {
+                        Answer.save($scope.answer, onSaveSuccess, onSaveError);
+                    }
+                };
     });
