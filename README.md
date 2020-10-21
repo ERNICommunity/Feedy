@@ -1,5 +1,7 @@
 # Feedy
 
+:warning: **REPOSITORY NOT ACTIVE SINCE 2018 Dependabot alerts in git security settings disabled**
+
 This application was generated using JHipster, you can find documentation and help at [https://jhipster.github.io](https://jhipster.github.io).
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
